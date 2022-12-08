@@ -1,0 +1,18 @@
+add_executable(nodes
+    nodes/addnode.cpp
+    nodes/addnode.h
+    nodes/numbernode.cpp
+    nodes/numbernode.h
+    nodes/outputnode.cpp
+    nodes/outputnode.h
+    main.cpp
+    node.cpp
+    node.h
+    nodetree.cpp
+    nodetree.h
+    properties.cpp
+    properties.h
+    socket.cpp
+    socket.h
+    types.h
+)
