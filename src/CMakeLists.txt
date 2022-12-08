@@ -12,7 +12,5 @@ add_executable(nodes
     nodetree.h
     properties.cpp
     properties.h
-    socket.cpp
-    socket.h
     types.h
 )
