@@ -1,7 +1,9 @@
 #ifndef PROPERTIES_H
 #define PROPERTIES_H
 
+#include <iostream>
 #include <vector>
+
 #include "types.h"
 
 enum PropertyType {
@@ -10,29 +12,31 @@ enum PropertyType {
 };
 
 class Node;
-class Socket;
 
-// class IProperty
 class IProperty
 {
 private:
-    std::vector<IProperty*> m_connectedInputProperties;
-    std::vector<IProperty*> m_connectedOutputProperties;
     Variant m_defaultValue;
     Variant m_value;
     Node* m_node;
     int m_type = PropertyType::INPUT;
 public:
+    std::vector<IProperty*> m_linkedInputProperties;
+    std::vector<IProperty*> m_linkedOutputProperties;
+
     void linkProperty(IProperty* property)
     {
-        if (property->type() == PropertyType::INPUT) {
-            m_connectedInputProperties.push_back(property);
-        } else if (property->type() == PropertyType::OUTPUT) {
-            m_connectedOutputProperties.push_back(property);
+        if (type() == PropertyType::OUTPUT && property->type() == PropertyType::INPUT) {
+            m_linkedInputProperties.push_back(property);
+            property->m_linkedInputProperties.push_back(this);
+        } else if (type() == PropertyType::INPUT && property->type() == PropertyType::OUTPUT) {
+            m_linkedOutputProperties.push_back(property);
+            property->m_linkedOutputProperties.push_back(this);
         }
     };
-    std::vector<IProperty*> connectedInputProperties() { return m_connectedInputProperties; };
-    std::vector<IProperty*> connectedOutputProperties() { return m_connectedOutputProperties; };
+
+    std::vector<IProperty*> linkedInputProperties() { return m_linkedInputProperties; };
+    std::vector<IProperty*> linkedOutputProperties() { return m_linkedOutputProperties; };
 
     Variant defaultValue() { return m_defaultValue; }
     void setDefaultValue(Variant newDefaultValue) { m_defaultValue = newDefaultValue; }

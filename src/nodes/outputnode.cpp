@@ -28,7 +28,4 @@ void OutputNode::mutedEvaluation()
     evaluation();
 }
 
-void OutputNode::evaluation()
-{
-    std::cout << "" << std::endl;
-}
+void OutputNode::evaluation() {}

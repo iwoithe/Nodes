@@ -25,7 +25,7 @@ void AddNode::initProperties()
     value2->setDefaultValue(0);
     value2->setType(PropertyType::INPUT);
     value2->setValue(0);
-    addProperty("value1", value2);
+    addProperty("value2", value2);
 
     IntegerProperty* result = new IntegerProperty();
     result->setDefaultValue(0);
@@ -49,19 +49,3 @@ void AddNode::evaluation()
     result->setValue(value1 + value2);
     setNeedExec(false);
 }
-
-/*
-
-onEvaluation:
-
-checkInputs()
-
-evaluation()
-for outputProperty in outputProperties():
-    for socket in outputProperty->connectSockets():
-        connectedProperty = socket->property()
-        connectedProperty->setValue(outputProperty->value())
-
-# Continue with next node
-
-*/

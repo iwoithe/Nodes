@@ -20,7 +20,16 @@ int main()
     nodeTree->addNode(outputNode);
     nodeTree->setOutputNode(outputNode);
 
+    numberNode1->property<IntegerProperty*>("number")->setValue(5);
+    numberNode2->property<IntegerProperty*>("number")->setValue(3);
+
+    numberNode1->property<IntegerProperty*>("number")->linkProperty(addNode->property<IntegerProperty*>("value1"));
+    numberNode2->property<IntegerProperty*>("number")->linkProperty(addNode->property<IntegerProperty*>("value2"));
+    addNode->property<IntegerProperty*>("result")->linkProperty(outputNode->property<IntegerProperty*>("input"));
+
+    std::cout << "Output Node Value (Before Node Tree Evaluation): " << std::get<int>(outputNode->property<IntegerProperty*>("input")->value()) << std::endl;
     nodeTree->evaluate();
+    std::cout << "Output Node Value (After Node Tree Evaluation): " << std::get<int>(outputNode->property<IntegerProperty*>("input")->value()) << std::endl;
 
     return 0;
 }

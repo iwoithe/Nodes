@@ -26,7 +26,4 @@ void NumberNode::initProperties()
 
 void NumberNode::mutedEvaluation() {}
 
-void NumberNode::evaluation()
-{
-    std::cout << std::get<int>(property<IntegerProperty*>("number")->value()) << std::endl;
-}
+void NumberNode::evaluation() {}

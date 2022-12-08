@@ -13,7 +13,13 @@ void Node::addProperty(std::string name, IProperty* property)
 
 void Node::checkInputs()
 {
-    inputProperties();
+    for (IProperty* property : inputProperties()) {
+        for (IProperty* p : property->linkedInputProperties()) {
+            p->node()->checkInputs();
+            p->node()->evaluation();
+            property->setValue(p->value());
+        }
+    }
 }
 
 void Node::evaluation() {}
