@@ -10,12 +10,12 @@ void Socket::setNode(Node* n)
     m_node = n;
 }
 
-AProperty* Socket::property()
+IProperty* Socket::property()
 {
     return m_property;
 }
 
-void Socket::setProperty(AProperty* newProperty)
+void Socket::setProperty(IProperty* newProperty)
 {
     m_property = newProperty;
 }

@@ -1,6 +1,7 @@
 #ifndef PROPERTIES_H
 #define PROPERTIES_H
 
+#include <vector>
 #include "types.h"
 
 enum PropertyType {
@@ -11,19 +12,18 @@ enum PropertyType {
 class Node;
 class Socket;
 
-class AProperty
+// class IProperty
+class IProperty
 {
 private:
-    // For consistency, should primarily use the following
-    // std::vector<AProperty*> m_connectedSockets;
-    std::vector<AProperty*> m_connectedInputProperties;
-    std::vector<AProperty*> m_connectedOutputProperties;
+    std::vector<IProperty*> m_connectedInputProperties;
+    std::vector<IProperty*> m_connectedOutputProperties;
     Variant m_defaultValue;
     Variant m_value;
     Node* m_node;
     int m_type = PropertyType::INPUT;
 public:
-    void linkProperty(AProperty* property)
+    void linkProperty(IProperty* property)
     {
         if (property->type() == PropertyType::INPUT) {
             m_connectedInputProperties.push_back(property);
@@ -31,8 +31,8 @@ public:
             m_connectedOutputProperties.push_back(property);
         }
     };
-    std::vector<AProperty*> connectedInputProperties() { return m_connectedInputProperties; };
-    std::vector<AProperty*> connectedOutputProperties() { return m_connectedOutputProperties; };
+    std::vector<IProperty*> connectedInputProperties() { return m_connectedInputProperties; };
+    std::vector<IProperty*> connectedOutputProperties() { return m_connectedOutputProperties; };
 
     Variant defaultValue() { return m_defaultValue; }
     void setDefaultValue(Variant newDefaultValue) { m_defaultValue = newDefaultValue; }
@@ -47,20 +47,10 @@ public:
     void setValue(Variant newValue) { m_value = newValue; }
 };
 
-template<typename T> class IProperty : public AProperty
-{
-private:
-    T m_defaultValue;
-    T m_value;
-public:
-    T defaultValue() { return m_defaultValue; }
-    void setDefaultValue(T newDefaultValue) { m_defaultValue = newDefaultValue; }
-
-    T value() { return m_value; }
-    void setValue(T newValue) { m_value = newValue; }
-};
-
 // Sub-classes also implement the UI
-class IntegerProperty : public IProperty<int> {};
+// class IntegerProperty : public IProperty<int> {};
+class IntegerProperty : public IProperty
+{
+};
 
 #endif // PROPERTIES_H

@@ -19,7 +19,7 @@ void OutputNode::initProperties()
     input->setDefaultValue(0);
     input->setType(PropertyType::INPUT);
     input->setValue(0);
-    addProperty<int>("input", input);
+    addProperty("input", input);
 }
 
 void OutputNode::mutedEvaluation()

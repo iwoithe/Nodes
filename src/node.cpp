@@ -5,7 +5,7 @@
 #include "properties.h"
 
 
-template<typename T> void Node::addProperty(std::string name, IProperty<T>* property)
+void Node::addProperty(std::string name, IProperty* property)
 {
     property->setNode(this);
     m_properties[name] = property;
@@ -20,9 +20,9 @@ void Node::evaluation() {}
 
 void Node::initProperties() {}
 
-std::vector<AProperty*> Node::inputProperties()
+std::vector<IProperty*> Node::inputProperties()
 {
-    std::vector<AProperty*> inputProps = {};
+    std::vector<IProperty*> inputProps = {};
     for (const auto& [key, value] : m_properties) {
         if (value->type() == PropertyType::INPUT) {
             inputProps.push_back(value);
@@ -45,9 +45,9 @@ VariantMap Node::metaData()
 
 void Node::mutedEvaluation() {}
 
-std::vector<AProperty*> Node::outputProperties()
+std::vector<IProperty*> Node::outputProperties()
 {
-    std::vector<AProperty*> inputProps = {};
+    std::vector<IProperty*> inputProps = {};
     for (const auto& [key, value] : m_properties) {
         if (value->type() == PropertyType::OUTPUT) {
             inputProps.push_back(value);
@@ -78,9 +78,4 @@ void Node::setNeedExec(bool newValue)
 }
 
 // See https://stackoverflow.com/a/8752879
-template void Node::addProperty(std::string name, IProperty<int>* property);
-template void Node::addProperty(std::string name, IProperty<float>* property);
-template void Node::addProperty(std::string name, IProperty<double>* property);
-template void Node::addProperty(std::string name, IProperty<std::string>* property);
-
 template IntegerProperty* Node::property(std::string propertyName);

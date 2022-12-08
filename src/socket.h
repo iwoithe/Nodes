@@ -8,13 +8,13 @@ class Socket
 {
 private:
     Node* m_node;
-    AProperty* m_property;
+    IProperty* m_property;
 public:
     Node* node();
     void setNode(Node* n);
 
-    AProperty* property();
-    void setProperty(AProperty* newProperty);
+    IProperty* property();
+    void setProperty(IProperty* newProperty);
 };
 
 #endif

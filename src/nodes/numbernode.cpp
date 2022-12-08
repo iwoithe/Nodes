@@ -21,12 +21,12 @@ void NumberNode::initProperties()
     valueInput->setDefaultValue(0);
     valueInput->setType(PropertyType::OUTPUT);
     valueInput->setValue(0);
-    addProperty<int>("number", valueInput);
+    addProperty("number", valueInput);
 }
 
 void NumberNode::mutedEvaluation() {}
 
 void NumberNode::evaluation()
 {
-    std::cout << property<IntegerProperty*>("number")->value() << std::endl;
+    std::cout << std::get<int>(property<IntegerProperty*>("number")->value()) << std::endl;
 }

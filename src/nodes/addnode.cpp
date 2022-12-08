@@ -19,19 +19,19 @@ void AddNode::initProperties()
     value1->setDefaultValue(0);
     value1->setType(PropertyType::INPUT);
     value1->setValue(0);
-    addProperty<int>("value1", value1);
+    addProperty("value1", value1);
 
     IntegerProperty* value2 = new IntegerProperty();
     value2->setDefaultValue(0);
     value2->setType(PropertyType::INPUT);
     value2->setValue(0);
-    addProperty<int>("value1", value2);
+    addProperty("value1", value2);
 
     IntegerProperty* result = new IntegerProperty();
     result->setDefaultValue(0);
     result->setType(PropertyType::OUTPUT);
     result->setValue(0);
-    addProperty<int>("result", result);
+    addProperty("result", result);
 }
 
 void AddNode::mutedEvaluation()
@@ -42,11 +42,11 @@ void AddNode::mutedEvaluation()
 
 void AddNode::evaluation()
 {
-    IntegerProperty* value1 = property<IntegerProperty*>("value1");
-    IntegerProperty* value2 = property<IntegerProperty*>("value2");
+    int value1 = std::get<int>(property<IntegerProperty*>("value1")->value());
+    int value2 = std::get<int>(property<IntegerProperty*>("value2")->value());
     IntegerProperty* result = property<IntegerProperty*>("result");
 
-    result->setValue(value1->value() + value2->value());
+    result->setValue(value1 + value2);
     setNeedExec(false);
 }
 
