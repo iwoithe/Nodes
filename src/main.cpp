@@ -30,7 +30,7 @@ int main()
     addNode->property<IntegerProperty*>("result")->linkProperty(outputNode->property<IntegerProperty*>("input"));
 
     nodeTree->evaluate();
-    
+
     addNode->setIsMuted(false);
     nodeTree->evaluate();
 
