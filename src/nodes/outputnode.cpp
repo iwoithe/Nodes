@@ -28,4 +28,7 @@ void OutputNode::mutedEvaluation()
     evaluation();
 }
 
-void OutputNode::evaluation() {}
+void OutputNode::evaluation()
+{
+    std::cout << "Output Value: " << std::get<int>(property<IntegerProperty*>("input")->value()) << std::endl;
+}

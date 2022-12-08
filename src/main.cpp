@@ -27,9 +27,7 @@ int main()
     numberNode2->property<IntegerProperty*>("number")->linkProperty(addNode->property<IntegerProperty*>("value2"));
     addNode->property<IntegerProperty*>("result")->linkProperty(outputNode->property<IntegerProperty*>("input"));
 
-    std::cout << "Output Node Value (Before Node Tree Evaluation): " << std::get<int>(outputNode->property<IntegerProperty*>("input")->value()) << std::endl;
     nodeTree->evaluate();
-    std::cout << "Output Node Value (After Node Tree Evaluation): " << std::get<int>(outputNode->property<IntegerProperty*>("input")->value()) << std::endl;
 
     return 0;
 }
