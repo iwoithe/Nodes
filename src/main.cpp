@@ -23,10 +23,15 @@ int main()
     numberNode1->property<IntegerProperty*>("number")->setValue(5);
     numberNode2->property<IntegerProperty*>("number")->setValue(3);
 
+    addNode->setIsMuted(true);
+
     numberNode1->property<IntegerProperty*>("number")->linkProperty(addNode->property<IntegerProperty*>("value1"));
     numberNode2->property<IntegerProperty*>("number")->linkProperty(addNode->property<IntegerProperty*>("value2"));
     addNode->property<IntegerProperty*>("result")->linkProperty(outputNode->property<IntegerProperty*>("input"));
 
+    nodeTree->evaluate();
+    
+    addNode->setIsMuted(false);
     nodeTree->evaluate();
 
     return 0;
