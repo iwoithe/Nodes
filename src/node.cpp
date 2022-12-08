@@ -15,8 +15,15 @@ void Node::checkInputs()
 {
     for (IProperty* property : inputProperties()) {
         for (IProperty* p : property->linkedInputProperties()) {
-            p->node()->checkInputs();
-            p->node()->evaluation();
+            Node* n = p->node();
+            n->checkInputs();
+
+            if (n->isMuted()) {
+                n->mutedEvaluation();
+            } else {
+                n->evaluation();
+            }
+
             property->setValue(p->value());
         }
     }
@@ -36,6 +43,16 @@ std::vector<IProperty*> Node::inputProperties()
     }
 
     return inputProps;
+}
+
+bool Node::isMuted()
+{
+    return m_isMuted;
+}
+
+void Node::setIsMuted(bool newValue)
+{
+    m_isMuted = newValue;
 }
 
 VariantMap Node::metaData()

@@ -9,6 +9,7 @@
 class Node
 {
 private:
+    bool m_isMuted = false;
     bool m_needExec = false;
     std::map<std::string, IProperty*> m_properties = {};
 public:
@@ -19,7 +20,12 @@ public:
     virtual void evaluation();
     virtual void initProperties();
     std::vector<IProperty*> inputProperties();
+
+    bool isMuted();
+    void setIsMuted(bool newValue);
+
     virtual VariantMap metaData();
+
     virtual void mutedEvaluation();
     std::vector<IProperty*> outputProperties();
 
