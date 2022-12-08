@@ -13,6 +13,7 @@ private:
     std::map<std::string, IProperty*> m_properties = {};
 public:
     void addProperty(std::string name, IProperty* property);
+    // TODO: Come up with more accurate names for `checkInputs` and `evaluation`
     void checkInputs();
     // TODO: `exec` instead of `evaluation`?
     virtual void evaluation();
