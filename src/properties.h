@@ -48,7 +48,6 @@ public:
 };
 
 // Sub-classes also implement the UI
-// class IntegerProperty : public IProperty<int> {};
 class IntegerProperty : public IProperty
 {
 };
