@@ -8,11 +8,10 @@ A minimal backend for nodes.
 - Backend only - you can implement your own frontend
 - Simple API (at least in my opinion)
 - Node muting
+- Node groups (see the example group node under `src/nodes/groupnode.[cpp,h]`)
 
 ## What Is Missing/What I'll Work On Next
 
-- Node groups
-- Re-routes
 - Looping
 - Evaluation using concurrency/parellism
 
@@ -41,7 +40,7 @@ To run the example found in `src/main.cpp`, run `./src/nodes{{OS EXECUTABLE EXTE
 ## Additional Notes
 
 - As of writing, I am not completely convinced that this uses the most efficient evaluation system. A key problem is that the *whole* node tree is evaluated every time, even if some nodes don't need to be run again.
-- How much will I maintain this repository? Good question. I am not entirely sure, particularly as this was originally intended to be a prototype for Gimel Studio, but if there is enough interest I will continue working on it.
+- I am not entirely sure how much I will maintain this repository, particularly as this was originally intended to be a prototype for [Gimel Studio](https://gimelstudio.github.io), but if there is enough interest I will continue working on it.
 
 ## License
 
