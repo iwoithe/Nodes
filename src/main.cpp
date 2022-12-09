@@ -1,5 +1,7 @@
 #include <iostream>
 
+#include "types.h"
+
 #include "nodetree.h"
 
 #include "nodes/addnode.h"
@@ -9,6 +11,9 @@
 
 int main()
 {
+    // Variant tests
+    
+
     // TODO: Should probably split the examples into separate files
 
     // Example 1
@@ -84,14 +89,6 @@ int main()
 
     addNode->property<IntegerProperty*>("result")->linkProperty(outputNode->property<IntegerProperty*>("input"));
     nodeTree->evaluate();
-
-    // while (true) {
-    //     int numberNodeValue;
-    //     std::cout << "Enter a number: ";
-    //     std::cin >> numberNodeValue;
-    //     numberNode->property<IntegerProperty*>("number")->setValue(numberNodeValue);
-    //     nodeTree->evaluate();
-    // }
 
     return 0;
 }

@@ -5,11 +5,11 @@
 VariantMap AddNode::metaData()
 {
     return {
-        {"name", "Add"},
-        {"author", "Ilias Woithe"},
-        {"version", "1.0.0"},
-        {"category", "Math"},
-        {"description", "Add two numbers together"}
+        {"name", Variant::fromValue("Add")},
+        {"author", Variant::fromValue("Ilias Woithe")},
+        {"version", Variant::fromValue("1.0.0")},
+        {"category", Variant::fromValue("Math")},
+        {"description", Variant::fromValue("Add two numbers together")}
     };
 }
 
@@ -42,8 +42,8 @@ void AddNode::mutedEvaluation()
 
 void AddNode::evaluation()
 {
-    int value1 = std::get<int>(property<IntegerProperty*>("value1")->value());
-    int value2 = std::get<int>(property<IntegerProperty*>("value2")->value());
+    int value1 = property<IntegerProperty*>("value1")->value().toInt();
+    int value2 = property<IntegerProperty*>("value2")->value().toInt();
     IntegerProperty* result = property<IntegerProperty*>("result");
 
     result->setValue(value1 + value2);

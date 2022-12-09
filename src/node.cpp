@@ -58,11 +58,11 @@ void Node::setIsMuted(bool newValue)
 VariantMap Node::metaData()
 {
     return {
-        {"name", ""},
-        {"author", ""},
-        {"version", ""},
-        {"category", ""},
-        {"description", ""}
+        {"name", Variant::fromValue("")},
+        {"author", Variant::fromValue("")},
+        {"version", Variant::fromValue("")},
+        {"category", Variant::fromValue("")},
+        {"description", Variant::fromValue("")}
     };
 }
 

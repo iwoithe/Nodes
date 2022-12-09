@@ -5,11 +5,11 @@
 VariantMap OutputNode::metaData()
 {
     return {
-        {"name", "Output"},
-        {"author", "Ilias Woithe"},
-        {"version", "1.0.0"},
-        {"category", "Output"},
-        {"description", "Prints any value inputted"}
+        {"name", Variant::fromValue("Output")},
+        {"author", Variant::fromValue("Ilias Woithe")},
+        {"version", Variant::fromValue("1.0.0")},
+        {"category", Variant::fromValue("Output")},
+        {"description", Variant::fromValue("Prints any value inputted")}
     };
 }
 
@@ -30,5 +30,5 @@ void OutputNode::mutedEvaluation()
 
 void OutputNode::evaluation()
 {
-    std::cout << "Output Value: " << std::get<int>(property<IntegerProperty*>("input")->value()) << std::endl;
+    std::cout << "Output Value: " << property<IntegerProperty*>("input")->value().toInt() << std::endl;
 }
