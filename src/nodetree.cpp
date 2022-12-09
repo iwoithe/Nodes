@@ -10,8 +10,6 @@ void NodeTree::evaluate()
 {
     if (m_outputNode) {
         m_outputNode->checkInputs();
-        IntegerProperty* resultProp = m_outputNode->property<IntegerProperty*>("input");
-        resultProp->setValue(resultProp->linkedOutputProperties()[0]->value());
         m_outputNode->evaluation();
     }
 }
