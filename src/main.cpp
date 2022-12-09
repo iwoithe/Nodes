@@ -70,8 +70,8 @@ int main()
     groupNumberNode1->property<IntegerProperty*>("number")->setValue(-2);
     groupNumberNode2->property<IntegerProperty*>("number")->setValue(3);
 
-    groupNumberNode1->property<IntegerProperty*>("number")->linkProperty(addNode->property<IntegerProperty*>("value1"));
-    groupNumberNode2->property<IntegerProperty*>("number")->linkProperty(addNode->property<IntegerProperty*>("value2"));
+    groupNumberNode1->property<IntegerProperty*>("number")->linkProperty(groupAddNode->property<IntegerProperty*>("value1"));
+    groupNumberNode2->property<IntegerProperty*>("number")->linkProperty(groupAddNode->property<IntegerProperty*>("value2"));
     groupAddNode->property<IntegerProperty*>("result")->linkProperty(groupOutputNode->property<IntegerProperty*>("input"));
 
     // Back to the top-level node tree
@@ -80,10 +80,18 @@ int main()
     // Link the properties together
     numberNode->property<IntegerProperty*>("number")->linkProperty(addNode->property<IntegerProperty*>("value1"));
     groupNode->property<IntegerProperty*>("output")->linkProperty(addNode->property<IntegerProperty*>("value2"));
+    // groupNode->nodeTree()->evaluate();
 
     addNode->property<IntegerProperty*>("result")->linkProperty(outputNode->property<IntegerProperty*>("input"));
-
     nodeTree->evaluate();
+
+    // while (true) {
+    //     int numberNodeValue;
+    //     std::cout << "Enter a number: ";
+    //     std::cin >> numberNodeValue;
+    //     numberNode->property<IntegerProperty*>("number")->setValue(numberNodeValue);
+    //     nodeTree->evaluate();
+    // }
 
     return 0;
 }

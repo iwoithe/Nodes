@@ -14,7 +14,7 @@ void Node::addProperty(std::string name, IProperty* property)
 void Node::checkInputs()
 {
     for (IProperty* property : inputProperties()) {
-        for (IProperty* p : property->linkedInputProperties()) {
+        for (IProperty* p : property->linkedOutputProperties()) {
             Node* n = p->node();
             n->checkInputs();
 

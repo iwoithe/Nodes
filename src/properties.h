@@ -28,10 +28,10 @@ public:
     {
         if (type() == PropertyType::OUTPUT && property->type() == PropertyType::INPUT) {
             m_linkedInputProperties.push_back(property);
-            property->m_linkedInputProperties.push_back(this);
+            property->m_linkedOutputProperties.push_back(this);
         } else if (type() == PropertyType::INPUT && property->type() == PropertyType::OUTPUT) {
             m_linkedOutputProperties.push_back(property);
-            property->m_linkedOutputProperties.push_back(this);
+            property->m_linkedInputProperties.push_back(this);
         }
     };
 
