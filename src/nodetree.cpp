@@ -14,9 +14,19 @@ void NodeTree::evaluate()
     }
 }
 
+Node* NodeTree::inputNode()
+{
+    return m_inputNode;
+}
+
 void NodeTree::setInputNode(Node* n)
 {
     m_inputNode = n;
+}
+
+Node* NodeTree::outputNode()
+{
+    return m_outputNode;
 }
 
 void NodeTree::setOutputNode(Node* n)

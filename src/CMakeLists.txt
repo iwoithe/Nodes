@@ -1,6 +1,8 @@
 add_executable(nodes
     nodes/addnode.cpp
     nodes/addnode.h
+    nodes/groupnode.cpp
+    nodes/groupnode.h
     nodes/numbernode.cpp
     nodes/numbernode.h
     nodes/outputnode.cpp

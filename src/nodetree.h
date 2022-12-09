@@ -14,7 +14,11 @@ private:
 public:
     void addNode(Node* n);
     void evaluate();
+
+    Node* inputNode();
     void setInputNode(Node* n);
+
+    Node* outputNode();
     void setOutputNode(Node* n);
 };
 
