@@ -31,13 +31,13 @@ void GroupNode::initProperties()
 void GroupNode::mutedEvaluation()
 {
     IntegerProperty* output = property<IntegerProperty*>("output");
-    output->setValue(output->defaultValue());
+    output->setValue(output->defaultVariant());
 }
 
 void GroupNode::evaluation()
 {
     m_nodeTree->evaluate();
-    property<IntegerProperty*>("output")->setValue(m_nodeTree->outputNode()->property<IntegerProperty*>("input")->value());
+    property<IntegerProperty*>("output")->setValue(m_nodeTree->outputNode()->property<IntegerProperty*>("input")->variant());
     setNeedExec(false);
 }
 

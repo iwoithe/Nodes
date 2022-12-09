@@ -24,7 +24,7 @@ void Node::checkInputs()
                 n->evaluation();
             }
 
-            property->setValue(p->value());
+            property->setValue(p->variant());
         }
     }
 }

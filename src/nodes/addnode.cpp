@@ -37,13 +37,13 @@ void AddNode::initProperties()
 void AddNode::mutedEvaluation()
 {
     IntegerProperty* result = property<IntegerProperty*>("result");
-    result->setValue(result->defaultValue());
+    result->setValue(result->defaultVariant());
 }
 
 void AddNode::evaluation()
 {
-    int value1 = property<IntegerProperty*>("value1")->value().toInt();
-    int value2 = property<IntegerProperty*>("value2")->value().toInt();
+    int value1 = property<IntegerProperty*>("value1")->variant().toInt();
+    int value2 = property<IntegerProperty*>("value2")->variant().toInt();
     IntegerProperty* result = property<IntegerProperty*>("result");
 
     result->setValue(value1 + value2);

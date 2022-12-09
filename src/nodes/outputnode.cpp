@@ -30,5 +30,5 @@ void OutputNode::mutedEvaluation()
 
 void OutputNode::evaluation()
 {
-    std::cout << "Output Value: " << property<IntegerProperty*>("input")->value().toInt() << std::endl;
+    std::cout << "Output Value: " << property<IntegerProperty*>("input")->variant().toInt() << std::endl;
 }

@@ -16,9 +16,8 @@ class Node;
 class IProperty
 {
 private:
-    Variant m_defaultValue;
-    // TODO: Change to m_variant as it now makes more sense
-    Variant m_value;
+    Variant m_defaultVariant;
+    Variant m_variant;
     Node* m_node;
     int m_type = PropertyType::INPUT;
 public:
@@ -39,9 +38,9 @@ public:
     std::vector<IProperty*> linkedInputProperties() { return m_linkedInputProperties; };
     std::vector<IProperty*> linkedOutputProperties() { return m_linkedOutputProperties; };
 
-    Variant defaultValue() { return m_defaultValue; }
-    void setDefaultValue(Variant newDefaultValue) { m_defaultValue.setValue(newDefaultValue); }
-    void setDefaultValue(VariantType newDefaultValue) { m_defaultValue.setValue(newDefaultValue); }
+    Variant defaultVariant() { return m_defaultVariant; }
+    void setDefaultValue(Variant v) { m_defaultVariant.setValue(v); }
+    void setDefaultValue(VariantType v) { m_defaultVariant.setValue(v); }
 
     Node* node() { return m_node; }
     void setNode(Node* n) { m_node = n; }
@@ -49,9 +48,9 @@ public:
     int type() { return m_type; }
     void setType(int type) { m_type = type; };
 
-    Variant value() { return m_value; }
-    void setValue(Variant newValue) { m_value.setValue(newValue); }
-    void setValue(VariantType newValue) { m_value.setValue(newValue); }
+    Variant variant() { return m_variant; }
+    void setValue(Variant v) { m_variant.setValue(v); }
+    void setValue(VariantType v) { m_variant.setValue(v); }
 };
 
 // Sub-classes also implement the UI
