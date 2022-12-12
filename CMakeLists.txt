@@ -10,10 +10,12 @@ option(QT_SUPPORT "Build with Qt support" OFF)
 if (QT_SUPPORT)
     set(QT_COMPONENTS
         Core
+        Gui
     )
 
     set(QT_LIBRARIES
         Qt5::Core
+        Qt5::Gui
     )
 
     find_package(Qt5 COMPONENTS ${QT_COMPONENTS} REQUIRED)
