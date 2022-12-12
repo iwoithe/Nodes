@@ -42,4 +42,6 @@ public:
     VariantType variant() { return m_variant; }
 };
 
+typedef std::map<std::string, Variant> VariantMap;
+
 #endif // TYPES_H
