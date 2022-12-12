@@ -7,7 +7,7 @@ VariantMap GroupNode::metaData()
     return {
         {"name", Variant::fromValue("Group")},
         {"author", Variant::fromValue("Ilias Woithe")},
-        {"version", Variant::fromValue("1.0.0")},
+        {"version", Variant::fromValue(VersionNumber(1, 0, 0))},
         {"category", Variant::fromValue("Group")},
         {"description", Variant::fromValue("A collection of nodes")}
     };

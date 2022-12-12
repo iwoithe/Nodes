@@ -8,7 +8,7 @@ VariantMap NumberNode::metaData()
 {
     return {
         {"name", Variant::fromValue("Value")},
-        {"author", Variant::fromValue("Ilias Woithe")},
+        {"author", Variant::fromValue(VersionNumber(1, 0, 0))},
         {"version", Variant::fromValue("1.0.0")},
         {"category", Variant::fromValue("Input")},
         {"description", Variant::fromValue("Store a number value")}

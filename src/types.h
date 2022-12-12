@@ -5,12 +5,65 @@
 #include <string>
 #include <variant>
 
-class Variant;
-
 class IType {};
 
-typedef std::variant<double, float, int, IType*, std::string> VariantType;
-typedef std::map<std::string, Variant> VariantMap;
+class VersionNumber
+{
+private:
+    int m_majorVersion = 0;
+    int m_minorVersion = 0;
+    int m_microVersion = 0;
+    int m_tag = NONE;
+public:
+    VersionNumber(int majorVersion) { m_majorVersion = majorVersion; }
+    VersionNumber(int majorVersion, int minorVersion)
+    {
+        m_majorVersion = majorVersion;
+        m_minorVersion = minorVersion;
+    }
+    VersionNumber(int majorVersion, int minorVersion, int microVersion)
+    {
+        m_majorVersion = majorVersion;
+        m_minorVersion = minorVersion;
+        m_microVersion = microVersion;
+    }
+    VersionNumber(int majorVersion, int minorVersion, int microVersion, int tag)
+    {
+        m_majorVersion = majorVersion;
+        m_minorVersion = minorVersion;
+        m_microVersion = microVersion;
+        m_tag = tag;
+    }
+
+    enum Tag {
+        NONE,
+        ALPHA,
+        BETA,
+        RELEASE_CANDIDENT
+    };
+
+    int majorVersion() const { return m_majorVersion; }
+    void setMajorVersion(int val) { m_majorVersion = val; }
+
+    int minorVersion() const { return m_minorVersion; }
+    void setMinorVersion(int val) { m_minorVersion = val; }
+
+    int microVersion() const { return m_microVersion; }
+    void setMicroVersion(int val) { m_microVersion = val; }
+
+    int tag() const { return m_tag; }
+    void setTag(int val) { m_tag = val; }
+
+    bool operator==(const VersionNumber &other)
+    {
+        return majorVersion() == other.majorVersion() &&
+               minorVersion() == other.minorVersion() &&
+               microVersion() == other.microVersion() &&
+               tag() == other.tag();
+    }
+};
+
+typedef std::variant<double, float, int, IType*, std::string, VersionNumber> VariantType;
 
 class Variant
 {

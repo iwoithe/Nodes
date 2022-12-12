@@ -60,7 +60,7 @@ VariantMap Node::metaData()
     return {
         {"name", Variant::fromValue("")},
         {"author", Variant::fromValue("")},
-        {"version", Variant::fromValue("")},
+        {"version", Variant::fromValue(VersionNumber(1, 0, 0))},
         {"category", Variant::fromValue("")},
         {"description", Variant::fromValue("")}
     };

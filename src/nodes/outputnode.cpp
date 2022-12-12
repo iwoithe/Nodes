@@ -7,7 +7,7 @@ VariantMap OutputNode::metaData()
     return {
         {"name", Variant::fromValue("Output")},
         {"author", Variant::fromValue("Ilias Woithe")},
-        {"version", Variant::fromValue("1.0.0")},
+        {"version", Variant::fromValue(VersionNumber(1, 0, 0))},
         {"category", Variant::fromValue("Output")},
         {"description", Variant::fromValue("Prints any value inputted")}
     };

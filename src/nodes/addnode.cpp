@@ -7,7 +7,7 @@ VariantMap AddNode::metaData()
     return {
         {"name", Variant::fromValue("Add")},
         {"author", Variant::fromValue("Ilias Woithe")},
-        {"version", Variant::fromValue("1.0.0")},
+        {"version", Variant::fromValue(VersionNumber(1, 0, 0))},
         {"category", Variant::fromValue("Math")},
         {"description", Variant::fromValue("Add two numbers together")}
     };
