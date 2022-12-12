@@ -30,6 +30,7 @@ public:
         return v;
     }
     template<typename T> T value() { return std::get<T>(m_variant); }
+    template<typename T> T valueToType() { return static_cast<T>(toIType()); }
     void setValue(Variant val) { m_variant = val.variant(); };
     void setValue(VariantType val) { m_variant = val; };
 
