@@ -1,9 +1,16 @@
 #ifndef TYPES_H
 #define TYPES_H
 
+#include "config.h"
+
 #include <map>
 #include <string>
 #include <variant>
+
+#ifdef QT_SUPPORT
+#include <QMetaObject>
+#include <QVariant>
+#endif
 
 class IType {};
 
@@ -15,6 +22,7 @@ private:
     int m_microVersion = 0;
     int m_tag = NONE;
 public:
+    VersionNumber() {}
     VersionNumber(int majorVersion) { m_majorVersion = majorVersion; }
     VersionNumber(int majorVersion, int minorVersion)
     {
@@ -91,10 +99,18 @@ public:
     float toFloat() { return std::get<float>(m_variant); }
     int toInt() { return std::get<int>(m_variant); }
     IType* toIType() { return std::get<IType*>(m_variant); }
+#ifdef QT_SUPPORT
+    QVariant toQVariant() { return QVariant::fromStdVariant(m_variant); }
+#endif
     std::string toString() { return std::get<std::string>(m_variant); }
     VariantType variant() { return m_variant; }
 };
 
 typedef std::map<std::string, Variant> VariantMap;
+
+#ifdef QT_SUPPORT
+Q_DECLARE_METATYPE(IType)
+Q_DECLARE_METATYPE(VersionNumber)
+#endif
 
 #endif // TYPES_H

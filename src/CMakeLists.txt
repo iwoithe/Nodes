@@ -16,3 +16,7 @@ add_executable(nodes
     properties.h
     types.h
 )
+
+if (QT_SUPPORT)
+    target_link_libraries(nodes PRIVATE ${QT_LIBRARIES})
+endif (QT_SUPPORT)
