@@ -79,7 +79,7 @@ public:
     }
 };
 
-typedef std::variant<double, float, int, IType*, std::string, VersionNumber> VariantType;
+typedef std::variant<double, float, int, IType, IType*, std::string, VersionNumber> VariantType;
 
 class Variant
 {
