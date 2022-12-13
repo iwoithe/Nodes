@@ -69,6 +69,14 @@ public:
                microVersion() == other.microVersion() &&
                tag() == other.tag();
     }
+
+    bool operator!=(const VersionNumber &other)
+    {
+        return majorVersion() != other.majorVersion() ||
+               minorVersion() != other.minorVersion() ||
+               microVersion() != other.microVersion() ||
+               tag() != other.tag();
+    }
 };
 
 typedef std::variant<double, float, int, IType*, std::string, VersionNumber> VariantType;
