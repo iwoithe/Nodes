@@ -108,7 +108,8 @@ public:
     int toInt() { return std::get<int>(m_variant); }
     IType* toIType() { return std::get<IType*>(m_variant); }
 #ifdef QT_SUPPORT
-    QVariant toQVariant() { return QVariant::fromStdVariant(m_variant); }
+    // Unfortunately, a template has to be used here. Otherwise Qt has a massive hissy fit
+    template<typename T> QVariant toQVariant() { return QVariant::fromValue<T>(m_variant); }
 #endif
     std::string toString() { return std::get<std::string>(m_variant); }
     VariantType variant() { return m_variant; }
