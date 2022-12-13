@@ -112,7 +112,7 @@ public:
     template<typename T> QVariant toQVariant() { return QVariant::fromValue<T>(m_variant); }
 #endif
     std::string toString() { return std::get<std::string>(m_variant); }
-    VariantType variant() { return m_variant; }
+    VariantType variant() const { return m_variant; }
 };
 
 typedef std::map<std::string, Variant> VariantMap;
