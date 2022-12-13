@@ -48,7 +48,7 @@ public:
     int type() { return m_type; }
     void setType(int type) { m_type = type; };
 
-    Variant variant() { return m_variant; }
+    Variant variant() const { return m_variant; }
     void setValue(Variant v) { m_variant.setValue(v); }
     void setValue(VariantType v) { m_variant.setValue(v); }
 };
