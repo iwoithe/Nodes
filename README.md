@@ -4,7 +4,7 @@ A minimal backend for nodes.
 
 ## Features
 
-- No external dependencies - only the C++ standard library is been used
+- No external dependencies - only the C++ standard library is used
 - Backend only - you can implement your own frontend
 - Simple API (at least in my opinion)
 - Node muting
